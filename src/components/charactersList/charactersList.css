@@ -1,0 +1,20 @@
+.left-column {
+    min-width: 25%;
+    padding: 50px;
+}
+
+.left-column ul li {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-column .flags {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-column .flags .flag {
+    margin-left: 15px;
+} 

@@ -1,0 +1,8 @@
+.right-column {
+    min-width: 75%;
+    padding: 50px;
+}
+
+.right-column .title {
+    font-size: 36px;
+}

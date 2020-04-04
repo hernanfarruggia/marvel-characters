@@ -1,56 +1,56 @@
 import React from 'react';
 import './charactersList.css';
 
-function CharactersList () {
+function CharactersList (props) {
+
+    const renderComicsFlag = (comics) => {
+        if (comics.vailable === 0) return null;
+
+        return (<div className="flag">C</div>);
+    }
+
+    const renderSeriesFlag = (series) => {
+        if (series.vailable === 0) return null;
+
+        return (<div className="flag">SE</div>);
+    }
+
+    const renderEventsFlag = (events) => {
+        if (events.vailable === 0) return null;
+
+        return (<div className="flag">E</div>);
+    }
+
+    const renderStoriesFlag = (stories) => {
+        if (stories.vailable === 0) return null;
+
+        return (<div className="flag">ST</div>);
+    }
+
+    const renderItem = (item) => {
+        return (
+            <li
+                key={ item.id }
+                onClick={ () => props.handleUpdateSelectedCharacter(item.id) }>
+                <div className="avatar">Av</div>
+                <span>
+                    { props.selectedCharacter.id === item.id ? '# ' : null }
+                    { item.name }
+                </span>
+                <div className="flags">
+                    { renderComicsFlag(item.comics) }
+                    { renderSeriesFlag(item.series) }
+                    { renderEventsFlag(item.events) }
+                    { renderStoriesFlag(item.stories) }
+                </div>
+            </li>
+        )
+    } 
 
     return (
         <div className="left-column">
             <ul>
-                <li>
-                    <div className="avatar">Av</div>
-                    <span>Iron Man</span>
-                    <div className="flags">
-                        <div className="flag">Flag 1</div>
-                        <div className="flag">Flag 2</div>
-                        <div className="flag">Flag 3</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="avatar">Av</div>
-                    <span>Spiderman</span>
-                    <div className="flags">
-                        <div className="flag">Flag 1</div>
-                        <div className="flag">Flag 2</div>
-                        <div className="flag">Flag 3</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="avatar">Av</div>
-                    <span>Hulk</span>
-                    <div className="flags">
-                        <div className="flag">Flag 1</div>
-                        <div className="flag">Flag 2</div>
-                        <div className="flag">Flag 3</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="avatar">Av</div>
-                    <span>Thor</span>
-                    <div className="flags">
-                        <div className="flag">Flag 1</div>
-                        <div className="flag">Flag 2</div>
-                        <div className="flag">Flag 3</div>
-                    </div>
-                </li>
-                <li>
-                    <div className="avatar">Av</div>
-                    <span>Captain America</span>
-                    <div className="flags">
-                        <div className="flag">Flag 1</div>
-                        <div className="flag">Flag 2</div>
-                        <div className="flag">Flag 3</div>
-                    </div>
-                </li>
+                { props.charactersList.map(renderItem) }
             </ul>
         </div>
     );

@@ -1,8 +1,21 @@
 .right-column {
-    min-width: 75%;
+    min-width: 65%;
     padding: 50px;
 }
 
 .right-column .title {
     font-size: 36px;
+    margin: 25px 0;
+}
+
+.right-column .links {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-column .links a {
+    color: #006eff;
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
 }

@@ -1,6 +1,14 @@
 .right-column {
     min-width: 65%;
-    padding: 50px;
+    padding: 50px 35px;
+}
+
+.right-column .empty {
+    align-items: center;
+    color: #c0c0c0;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
 }
 
 .right-column .title {

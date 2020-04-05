@@ -2,7 +2,7 @@ import React from 'react';
 import { getImgUrl } from '../../utils/utils';
 import './charactersDetail.css';
 
-function CharactersDetail (props) {
+const CharactersDetail = (props) => {
 
     const getImg = () => {
         const options = {
@@ -13,7 +13,7 @@ function CharactersDetail (props) {
     }
 
     const renderEmpty = () => {
-        return (<div>Please select a character!</div>);
+        return (<div className="empty">&lt;------ Please select a character first!</div>);
     }
 
     const renderBio = () => {

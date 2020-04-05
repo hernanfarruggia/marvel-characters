@@ -1,13 +1,29 @@
 .left-column {
     min-width: 35%;
-    padding: 50px;
+    padding: 35px;
 }
 
 .left-column ul li {
+    align-items: center;
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 15px 12px;
     width: 100%;
+}
+
+.left-column ul li:hover {
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+.left-column ul li.selected {
+    background-color: #dfdfdf;
+}
+
+.left-column ul li .avatar img {
+    border-radius: 10px;
 }
 
 .left-column .flags {

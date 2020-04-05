@@ -6,6 +6,11 @@ export const GET_CHARACTERS_LIST = 'GET_CHARACTERS_LIST';
 export const GET_CHARACTERS_LIST_ERROR = 'GET_CHARACTERS_LIST_ERROR';
 export const UPDATE_SELECTED_CHARACTER = 'UPDATE_SELECTED_CHARACTER';
 
+// There are some issues with Marvel API when trying to fetch information.
+// Is complaining about the timestamp and hash passed through the call.
+// I'll keep this piece of code commented, and replace the fetch data with a
+// mocked service with a response data from the example interactive Marvel's documentation
+//
 // export const getCharactersList = () => {
 //     return async dispatch => {
 //         const ts = new Date().getTime();
@@ -17,14 +22,12 @@ export const UPDATE_SELECTED_CHARACTER = 'UPDATE_SELECTED_CHARACTER';
 //         };
 
 //         try {
-//             let res = await fetch(url, options);
-//             let data = await res.json();
-//             console.log(data);
-//             // dispatch(getCharactersListSuccess(data));
+//             let response = await fetch(url, options);
+//             let data = await response.json();
+//             dispatch(getCharactersListSuccess(data.data.results));
 //         }
 //         catch (err) {
-//             console.log(err);
-//             // dispatch(getCharactersListFailure(err));
+//             dispatch(getCharactersListFailure(err));
 //         }
 //     }
 // }

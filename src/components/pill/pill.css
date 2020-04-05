@@ -1,0 +1,41 @@
+.pill {
+    color: white;
+    border-radius: 10px;
+    font-size: 10px;
+    margin-left: 5px;
+    padding: 5px 8px;
+}
+
+.pill.comics {
+    background-color: #f64d4d81;
+}
+
+.pill.comics:hover {
+    background-color: #f64d4d;
+}
+
+.pill.series {
+    background-color: #ffdb3881;
+    color: #7a7a7a;
+}
+
+.pill.series:hover {
+    background-color: #ffdb38;
+    color: #7a7a7a;
+}
+
+.pill.events {
+    background-color: #1779d481;
+}
+
+.pill.events:hover {
+    background-color: #1779d4;
+}
+
+.pill.stories {
+    background-color: #4aa02881;
+}
+
+.pill.stories:hover {
+    background-color: #4aa028;
+}

@@ -10,7 +10,7 @@ import {
 import CharactersList from '../charactersList';
 import CharactersDetail from '../charactersDetail';
 
-function App () {
+const App = () => {
     const dispatch = useDispatch();
     const charactersList = useSelector(state => state.charactersList);
     const selectedCharacter = useSelector(state => state.selectedCharacter);

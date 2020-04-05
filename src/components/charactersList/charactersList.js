@@ -1,8 +1,9 @@
 import React from 'react';
+import Pill from '../pill';
 import { getImgUrl } from '../../utils/utils';
 import './charactersList.css';
 
-function CharactersList (props) {
+const CharactersList = (props) => {
 
     const getImg = (item) => {
         const options = {
@@ -15,44 +16,47 @@ function CharactersList (props) {
     const renderComicsFlag = (comics) => {
         if (comics.vailable === 0) return null;
 
-        return (<div className="flag">C</div>);
+        return (<Pill type="comics" text="COMICS" />);
     }
 
     const renderSeriesFlag = (series) => {
         if (series.vailable === 0) return null;
 
-        return (<div className="flag">SE</div>);
+        return (<Pill type="series" text="SERIES" />);
     }
 
     const renderEventsFlag = (events) => {
         if (events.vailable === 0) return null;
 
-        return (<div className="flag">E</div>);
+        return (<Pill type="events" text="EVENTS" />);
     }
 
     const renderStoriesFlag = (stories) => {
         if (stories.vailable === 0) return null;
 
-        return (<div className="flag">ST</div>);
+        return (<Pill type="stories" text="STORIES" />);
     }
 
     const renderItem = (item) => {
+        let selectedClass = '';
+        if (props.selectedCharacter?.id === item.id) selectedClass = 'selected';
+
         return (
             <li
+                className={ selectedClass }
                 key={ item.id }
                 onClick={ () => props.handleUpdateSelectedCharacter(item.id) }>
                 <div className="avatar">
-                    <img src={ getImg(item) } alt={ props.selectedCharacter.name + '\'s image!' }/>
+                    <img src={ getImg(item) } alt={ item.name + '\'s image!' }/>
                 </div>
                 <span>
-                    { props.selectedCharacter.id === item.id ? '# ' : null }
                     { item.name }
                 </span>
                 <div className="flags">
                     { renderComicsFlag(item.comics) }
-                    { renderSeriesFlag(item.series) }
                     { renderEventsFlag(item.events) }
                     { renderStoriesFlag(item.stories) }
+                    { renderSeriesFlag(item.series) }
                 </div>
             </li>
         )

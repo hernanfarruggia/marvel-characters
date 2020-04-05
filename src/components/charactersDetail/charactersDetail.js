@@ -1,14 +1,15 @@
 import React from 'react';
+import { getImgUrl } from '../../utils/utils';
 import './charactersDetail.css';
 
 function CharactersDetail (props) {
 
-    const getImgUrl = () => {
-        const baseImg = props.selectedCharacter.thumbnail?.path;
-        const imgSize = 'standard_fantastic';
-        const ext = props.selectedCharacter.thumbnail?.extension;
-
-        return `${baseImg}/${imgSize}.${ext}`;
+    const getImg = () => {
+        const options = {
+            image: props.selectedCharacter.thumbnail,
+            size: 'large'
+        };
+        return getImgUrl(options);
     }
 
     const renderEmpty = () => {
@@ -56,7 +57,7 @@ function CharactersDetail (props) {
         return (
             <div className="content">
                 <div className="title">{ props.selectedCharacter.name }</div>
-                <img src={ getImgUrl() } alt={ props.selectedCharacter.name + '\'s image!' }/>
+                <img src={ getImg() } alt={ props.selectedCharacter.name + '\'s image!' }/>
 
                 { 
                     props.selectedCharacter.description ?

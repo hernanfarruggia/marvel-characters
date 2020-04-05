@@ -1,7 +1,16 @@
 import React from 'react';
+import { getImgUrl } from '../../utils/utils';
 import './charactersList.css';
 
 function CharactersList (props) {
+
+    const getImg = (item) => {
+        const options = {
+            image: item.thumbnail,
+            size: 'small'
+        };
+        return getImgUrl(options);
+    }
 
     const renderComicsFlag = (comics) => {
         if (comics.vailable === 0) return null;
@@ -32,7 +41,9 @@ function CharactersList (props) {
             <li
                 key={ item.id }
                 onClick={ () => props.handleUpdateSelectedCharacter(item.id) }>
-                <div className="avatar">Av</div>
+                <div className="avatar">
+                    <img src={ getImg(item) } alt={ props.selectedCharacter.name + '\'s image!' }/>
+                </div>
                 <span>
                     { props.selectedCharacter.id === item.id ? '# ' : null }
                     { item.name }

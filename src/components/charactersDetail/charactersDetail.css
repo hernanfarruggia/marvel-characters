@@ -1,9 +1,9 @@
-.right-column {
+.character-detail {
     min-width: 65%;
     padding: 50px 35px;
 }
 
-.right-column .empty {
+.character-detail .empty {
     align-items: center;
     color: #c0c0c0;
     display: flex;
@@ -11,19 +11,23 @@
     justify-content: center;
 }
 
-.right-column .title {
+.character-detail .title {
     font-size: 36px;
     margin: 25px 0;
 }
 
-.right-column .links {
+.character-detail .links {
     display: flex;
     flex-direction: column;
 }
 
-.right-column .links a {
+.character-detail .links a {
     color: #006eff;
     display: block;
     margin-top: 15px;
     text-decoration: none;
+}
+
+.character-detail .links a:hover {
+    color: #004195;
 }

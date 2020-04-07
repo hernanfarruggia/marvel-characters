@@ -1,16 +1,10 @@
 import React from 'react';
-import { getImgUrl } from '../../utils/utils';
+
+import Image from '../image';
+
 import './charactersDetail.css';
 
 const CharactersDetail = (props) => {
-
-    const getImg = () => {
-        const options = {
-            image: props.selectedCharacter.thumbnail,
-            size: 'large'
-        };
-        return getImgUrl(options);
-    }
 
     const renderEmpty = () => {
         return (<div className="empty">&lt;------ Please select a character first!</div>);
@@ -57,7 +51,10 @@ const CharactersDetail = (props) => {
         return (
             <div className="content">
                 <div className="title">{ props.selectedCharacter.name }</div>
-                <img src={ getImg() } alt={ props.selectedCharacter.name + '\'s image!' }/>
+                <Image
+                    charactersName={ props.selectedCharacter.name }
+                    image={ props.selectedCharacter.thumbnail }
+                    type='regular' />
 
                 { 
                     props.selectedCharacter.description ?
@@ -75,7 +72,7 @@ const CharactersDetail = (props) => {
     }
 
     return (
-        <div className="right-column">
+        <div className="character-detail">
             {
                 !props.selectedCharacter.name ?
                     renderEmpty() :

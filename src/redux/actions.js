@@ -6,10 +6,27 @@ export const GET_CHARACTERS_LIST = 'GET_CHARACTERS_LIST';
 export const GET_CHARACTERS_LIST_ERROR = 'GET_CHARACTERS_LIST_ERROR';
 export const UPDATE_SELECTED_CHARACTER = 'UPDATE_SELECTED_CHARACTER';
 
+export const getCharactersList = () => {
+    return {
+        type: GET_CHARACTERS_LIST,
+        charactersList: mockDdata.data.results
+    };
+}
+
+export const updateSelectedCharacter = (selectedCharacterId) => {
+    return {
+        type: UPDATE_SELECTED_CHARACTER,
+        selectedCharacterId
+    }
+}
+
 // There are some issues with Marvel API when trying to fetch information.
-// Is complaining about the timestamp and hash passed through the call.
-// I'll keep this piece of code commented, and replace the fetch data with a
-// mocked service with a response data from the example interactive Marvel's documentation
+// Is complaining about the timestamp and hash passed through the call and
+// throwing an authentication error code.
+// I'll keep this piece of code commented as reference for fetch calls, it should even work if
+// the API allows you to authenticate (make sure to change the public/private api key's), but
+// for the sake of this demo app, I'll replace the fetched data with a mocked response json data
+// from the Marvel's interctive documentation examples
 //
 // export const getCharactersList = () => {
 //     return async dispatch => {
@@ -32,30 +49,16 @@ export const UPDATE_SELECTED_CHARACTER = 'UPDATE_SELECTED_CHARACTER';
 //     }
 // }
 
-export const getCharactersList = () => {
-    return {
-        type: GET_CHARACTERS_LIST,
-        charactersList: mockDdata.data.results
-    };
-}
+// const getCharactersListSuccess = (charactersList) => {
+//     return {
+//         type: GET_CHARACTERS_LIST,
+//         charactersList
+//     };
+// }
 
-const getCharactersListSuccess = (charactersList) => {
-    return {
-        type: GET_CHARACTERS_LIST,
-        charactersList
-    };
-}
-
-const getCharactersListFailure = (err) => {
-    return {
-        type: GET_CHARACTERS_LIST_ERROR,
-        err
-    };
-}
-
-export const updateSelectedCharacter = (selectedCharacterId) => {
-    return {
-        type: UPDATE_SELECTED_CHARACTER,
-        selectedCharacterId
-    }
-}
+// const getCharactersListFailure = (err) => {
+//     return {
+//         type: GET_CHARACTERS_LIST_ERROR,
+//         err
+//     };
+// }

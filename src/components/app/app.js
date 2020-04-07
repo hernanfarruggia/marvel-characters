@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import {useDispatch, useSelector } from 'react-redux';
-import './app.css';
-
+import { useDispatch, useSelector } from 'react-redux';
 import {
     getCharactersList,
     updateSelectedCharacter
@@ -9,6 +7,8 @@ import {
 
 import CharactersList from '../charactersList';
 import CharactersDetail from '../charactersDetail';
+
+import './app.css';
 
 const App = () => {
     const dispatch = useDispatch();

@@ -1,17 +1,11 @@
 import React from 'react';
+
+import Image from '../image';
 import Pill from '../pill';
-import { getImgUrl } from '../../utils/utils';
+
 import './charactersList.css';
 
 const CharactersList = (props) => {
-
-    const getImg = (item) => {
-        const options = {
-            image: item.thumbnail,
-            size: 'small'
-        };
-        return getImgUrl(options);
-    }
 
     const renderComicsFlag = (comics) => {
         if (comics.vailable === 0) return null;
@@ -46,9 +40,10 @@ const CharactersList = (props) => {
                 className={ selectedClass }
                 key={ item.id }
                 onClick={ () => props.handleUpdateSelectedCharacter(item.id) }>
-                <div className="avatar">
-                    <img src={ getImg(item) } alt={ item.name + '\'s image!' }/>
-                </div>
+                <Image
+                    charactersName={ item.name }
+                    image={ item.thumbnail }
+                    type='avatar' />
                 <span>
                     { item.name }
                 </span>
@@ -63,7 +58,7 @@ const CharactersList = (props) => {
     } 
 
     return (
-        <div className="left-column">
+        <div className="characters-list">
             <ul>
                 { props.charactersList.map(renderItem) }
             </ul>

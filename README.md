@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Marvel's Characters
 
-## Available Scripts
+This app is a demo that fetches Characters information from Marvel's API, displays a list and then you can select those heroes and see some detail information about them!
 
-In the project directory, you can run:
+![Marvel's Characters!](screenshot.png)
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Please follow these instructions:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```bash
+# Locate where you wanna place the repo and clone it
+$ git clone https://github.com/hernanfarruggia/marvel-characters.git
 
-### `npm test`
+# Once it finisshes, open the floder
+$ cd marvel-characters
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Install dependencies
+$ npm install
 
-### `npm run build`
+# Once finished, run the app!
+$ npm start
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+And that's it!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Details
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project was created with ReactJS by using `create-react-app`, so once you run it as mentioned above, you will have a virtual server running in watch mode, and you can play around with the code and see the changes in real time!
 
-### `npm run eject`
+Inside `configs.js` you can set yout Public and Private API Key's to fetch data from the API. (See Troubleshooting section bellow)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Troubleshooting
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+There's some issues with the Marvel's API when trying to fetch data, it throws an Authentication error saying the ApiKey or Hash is wrong. I've doing some research and seems to be a common issue, since a lot of people came with this same question in several forums. I also tried other implementations with no luck.
+This means the app right now runs with a set of mocked data available in the API documentation. Should be the same as the API results, so won't affect the code, but is good to mention.
+But in case you want to give it a try, just uncomment the code in the `actions.js` file and comment out the current `getCharactersList` function and don't forget to update your key's in the `configs.js` file! (For security reasons I won't post my private key! You need your own!) 
